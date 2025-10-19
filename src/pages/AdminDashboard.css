@@ -1,0 +1,152 @@
+/* AdminDashboard.css */
+
+/* --- General Page Layout --- */
+
+.admin-dashboard {
+    /* Soft page background color, matching your form */
+    background-color: #f8f9fa; 
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    font-family: sans-serif;
+}
+
+.admin-dashboard h1 {
+    /* Title style matching the green accent */
+    color: #4CAF50;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* --- Controls (Search & Filter) --- */
+
+.filter-section {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.filter-section input,
+.filter-section select {
+    /* Inputs matching the clean, rounded form style */
+    padding: 0.75rem 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s;
+    min-width: 200px;
+}
+
+.filter-section input:focus,
+.filter-section select:focus {
+    outline: none;
+    border-color: #66BB6A; /* Accent green focus */
+    box-shadow: 0 0 0 2px rgba(102, 187, 106, 0.2);
+}
+
+/* --- Product Table --- */
+
+.product-table {
+    width: 95%; /* Adjust width to take up more space */
+    max-width: 1200px;
+    margin: 0 auto;
+    border-collapse: separate; /* Allows for rounded corners on the table */
+    border-spacing: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden; /* Clips children to the border radius */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Soft shadow for the card effect */
+}
+
+/* Table Header */
+.product-table thead th {
+    background-color: #f1f8f1; /* Very light green header background */
+    color: #38703c; /* Darker green text */
+    font-weight: 700;
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Rounding the corners of the first and last header cells */
+.product-table thead tr th:first-child {
+    border-top-left-radius: 12px;
+}
+.product-table thead tr th:last-child {
+    border-top-right-radius: 12px;
+}
+
+/* Table Body Rows */
+.product-table tbody tr {
+    transition: background-color 0.15s;
+}
+
+.product-table tbody tr:hover {
+    background-color: #f7fff7; /* Slight hover effect */
+}
+
+/* Table Cells */
+.product-table tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    color: #444;
+    vertical-align: middle;
+}
+
+/* Remove border on the last row */
+.product-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Product Image */
+.product-img {
+    width: 60px; /* Small, clear image size */
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+}
+
+/* --- Action Button --- */
+
+.edit-btn {
+    /* Button style matching the primary action green */
+    background-color: #66BB6A;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 2px 5px rgba(102, 187, 106, 0.3);
+}
+
+.edit-btn:hover {
+    background-color: #5cb85c;
+    transform: translateY(-1px);
+}
+
+/* Responsive Tweaks */
+@media (max-width: 900px) {
+    .filter-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    .filter-section input,
+    .filter-section select {
+        width: 100%;
+        max-width: 350px;
+    }
+    .product-table {
+        /* Makes table scrollable horizontally on small screens */
+        overflow-x: auto;
+        display: block; 
+    }
+    .product-table thead, .product-table tbody, .product-table tr, .product-table th, .product-table td {
+        white-space: nowrap; /* Prevents cell content from wrapping */
+    }
+}

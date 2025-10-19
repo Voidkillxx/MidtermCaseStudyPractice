@@ -1,0 +1,44 @@
+/* --- App.css (Unified Theme) --- */
+
+/* Global soft background for the entire app */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #eaf7ee;
+  color: #333;
+}
+
+/* Navbar styling */
+.app-navbar {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  background-color: #38703c;
+  padding: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.app-navbar button {
+  background-color: #5cb85c;
+  border: none;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.app-navbar button:hover {
+  background-color: #4cae4c;
+}
+
+.app-navbar .active {
+  background-color: #66bb6a;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Container spacing */
+.app-content {
+  padding: 2rem;
+}
