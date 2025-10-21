@@ -1,0 +1,113 @@
+.cart-bg {
+  background: #baecc9;
+  min-height: 100vh;
+  padding: 32px 0;
+}
+.cart-main {
+  display: flex;
+  max-width: 1180px;
+  margin: 0 auto;
+  gap: 28px;
+}
+.cart-left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.cart-right {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.order-summary-box {
+  background: #fff;
+  border-radius: 18px;
+  padding: 32px 28px;
+  min-width: 270px;
+  box-shadow: 0 2px 12px rgba(90,160,100,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.order-summary-box h4 {
+  color: #5ca34e;
+  margin-bottom: 15px;
+}
+.order-summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0;
+}
+.total-row span {
+  font-weight: 600;
+  color: #357639;
+}
+.checkout-btn, .continue-btn {
+  margin-top: 16px;
+  background: #60b159;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 18px;
+  padding: 11px 0;
+  cursor: pointer;
+  width: 100%;
+}
+.continue-btn {
+  background: #6ab76d;
+}
+.cart-empty {
+  color: #333;
+  font-size: 24px;
+  margin: 48px 0 0 48px;
+}
+.cart-empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  background: #c7efcf;
+  border-radius: 18px;
+  margin: 40px auto;
+  max-width: 430px;
+  box-shadow: 0 4px 18px rgba(80,160,120,0.09);
+  padding: 44px 20px 58px 20px;
+}
+
+.cart-empty-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 14px;
+  color: #284e27;
+}
+
+.cart-empty-desc {
+  color: #5dab68;
+  margin: 13px 0 26px 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.browse-products-btn {
+  background: #5ca84c;
+  color: #fff;
+  font-size: 1.18rem;
+  border: none;
+  border-radius: 11px;
+  padding: 14px 0;
+  width: 100%;
+  max-width: 270px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(80,180,100,0.06);
+  cursor: pointer;
+  margin-top: 20px;
+  letter-spacing: 0.02em;
+  transition: background 0.14s;
+}
+
+.browse-products-btn:hover {
+  background: #3ea957;
+}

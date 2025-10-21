@@ -1,18 +1,25 @@
 
 import React, { useState } from "react";
-import "../Styles/AddProduct.css";
+// Import the categories list for the dropdown
 import { categories } from "./AdminDashboard"; 
+import "../Styles/AddProduct.css"; // Reuse the same CSS
 
-// 🚀 FIX: Accept the onCancel prop 🚀
-const AddProduct = ({ onAddProduct, onCancel }) => {
+// EditProduct receives the product object, a save handler, and a cancel handler
+const EditProduct = ({ product, onSave, onCancel }) => {
+    
+    // Initialize form state with the properties of the product being edited
     const [form, setForm] = useState({
-        name: "",
-        description: "",
-        category: "", 
-        imageUrl: "",
-        stock: "",
-        price: "",
-        discount: "",
+        // Include the product's ID (hidden from user)
+        id: product.id,
+        name: product.name,
+        description: product.description || "",
+        // The category must match the name string
+        category: product.category, 
+        imageUrl: product.imageUrl || "",
+        // Ensure numbers are treated as strings for the form input
+        stock: String(product.stock || 0),
+        price: String(product.price),
+        discount: String(product.discount || 0),
     });
 
     const handleChange = (e) => {
@@ -27,39 +34,32 @@ const AddProduct = ({ onAddProduct, onCancel }) => {
             return;
         }
 
-        const newProduct = {
+        const editedProduct = {
+            // Keep the original ID
+            id: form.id, 
             name: form.name,
             description: form.description,
             category: form.category,
             imageUrl: form.imageUrl,
             
+            // Convert numeric fields back to numbers for storage
             stock: parseFloat(form.stock) || 0,
             price: parseFloat(form.price),       
             discount: parseFloat(form.discount) || 0,
         };
 
-        onAddProduct(newProduct); 
-
-        // Reset form (Optional: can be removed if you just rely on navigating away)
-        setForm({
-            name: "",
-            description: "",
-            category: "", 
-            imageUrl: "",
-            stock: "",
-            price: "",
-            discount: "",
-        });
+        // Call the save handler passed from App.js
+        onSave(editedProduct); 
     };
 
     return (
         <div className="ap-page-background font-sans">
             <div className="ap-container">
-                <h2 className="ap-header">Add Products</h2>
+                {/* Updated Header for editing */}
+                <h2 className="ap-header">Edit Product: {product.name} (ID: {product.id})</h2>
 
                 <div className="ap-card">
-                    <form id="add-product-form" className="ap-form-grid" onSubmit={handleSubmit}>
-                        {/* ... (Form fields remain the same) ... */}
+                    <form id="edit-product-form" className="ap-form-grid" onSubmit={handleSubmit}>
                         <div>
                             {/* Product Name */}
                             <div className="ap-field">
@@ -154,10 +154,10 @@ const AddProduct = ({ onAddProduct, onCancel }) => {
                     </form>
 
                     <div className="ap-actions">
-                        <button type="submit" form="add-product-form" className="ap-btn ap-btn-create">
-                            Create Product
+                        <button type="submit" form="edit-product-form" className="ap-btn ap-btn-create">
+                            Save Changes
                         </button>
-                        {/* 🚀 FIX: Hook up the onCancel prop 🚀 */}
+                        {/* Wires up the Cancel action */}
                         <button type="button" className="ap-btn ap-btn-cancel" onClick={onCancel}>
                             Cancel
                         </button>
@@ -168,4 +168,4 @@ const AddProduct = ({ onAddProduct, onCancel }) => {
     );
 };
 
-export default AddProduct;
+export default EditProduct;
